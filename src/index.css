@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap");
+
+/* Paleta por roles (mismo esquema que noua-construccion-web). El modo oscuro la reemplaza en body.dark-mode. */
+:root {
+  --primary: #24101f;
+  --primary-foreground: #ffffff;
+  --accent: #c8145a;
+  --accent-foreground: #ffffff;
+  --accent-text: #b0104d;
+  --background: #fffafb;
+  --foreground: #24101f;
+  --surface: #fbeef3;
+  --muted: #6e5666;
+  --border: #f0dbe4;
+  --shadow: 36, 16, 31;
+
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body.dark-mode {
+  --primary: #f7e9f0;
+  --primary-foreground: #1a0f17;
+  --accent: #ff5c93;
+  --accent-foreground: #1a0f17;
+  --accent-text: #ff85ad;
+  --background: #1a0f17;
+  --foreground: #f7e9f0;
+  --surface: #261621;
+  --muted: #c3a9b7;
+  --border: #3d2634;
+  --shadow: 0, 0, 0;
+}
+
+@media (prefers-contrast: more) {
+  :root, body.dark-mode {
+    --muted: var(--foreground);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Utilidades compartidas ---------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.text-muted { color: var(--muted); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: 600 0.875rem/1 var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(var(--shadow), 0.45); }
+.btn:active { transform: translateY(0) scale(0.97); box-shadow: none; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.btn-primary { background: var(--primary); color: var(--primary-foreground); }
+.btn-primary:hover { background: var(--accent); color: var(--accent-foreground); }
+.btn-accent { background: var(--accent); color: var(--accent-foreground); }
+.btn-accent:hover { background: var(--primary); color: var(--primary-foreground); }
+.btn-outline { background: transparent; color: var(--foreground); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent-text); }
+.btn-block { width: 100%; }
+
+.page-loading {
+  display: flex;
+  justify-content: center;
+  padding: 6rem 0;
+}
+
+/* ---------- Ajustes a Semantic UI para que siga la paleta ---------- */
+.ui.button { font-family: var(--font-sans); border-radius: 999px; font-weight: 600; transition: transform 0.2s var(--ease), background-color 0.2s; }
+.ui.button:hover { transform: translateY(-1px); }
+.ui.primary.button, .ui.primary.buttons .button { background: var(--accent); color: var(--accent-foreground); }
+.ui.primary.button:hover, .ui.primary.button:focus { background: var(--primary); color: var(--primary-foreground); }
+.ui.secondary.button { background: var(--primary); color: var(--primary-foreground); }
+.ui.secondary.button:hover, .ui.secondary.button:focus { background: var(--accent); color: var(--accent-foreground); }
+
+.ui.segment, .ui.table, .ui.steps, .ui.message {
+  background: var(--background);
+  color: var(--foreground);
+  border-color: var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.ui.table td, .ui.table th { border-color: var(--border) !important; }
+.ui.definition.table tr td:first-child:not(.ignored) { background: var(--surface); color: var(--muted); }
+.ui.table thead th { background: var(--surface); color: var(--foreground); }
+.ui.violet.table, .ui.inverted.violet.table { border-top: 3px solid var(--accent) !important; }
+.ui.inverted.violet.table { background: var(--primary) !important; color: var(--primary-foreground) !important; }
+
+.ui.steps .step { background: var(--background); color: var(--foreground); border-color: var(--border); }
+.ui.steps .step::after { background: var(--background); border-color: var(--border); }
+.ui.steps .step .title { color: var(--foreground); font-family: var(--font-sans); }
+.ui.steps .step .description { color: var(--muted); }
+.ui.steps .step.active { background: var(--surface); }
+.ui.steps .step.active::after { background: var(--surface); }
+.ui.steps .step.active .title, .ui.steps .step.active > .icon { color: var(--accent-text); }
+.ui.steps .completed.step > .icon::before { color: var(--accent); }
+
+.ui.divider, .ui.horizontal.divider { color: var(--muted); }
+.ui.horizontal.divider::before, .ui.horizontal.divider::after { opacity: 0.4; }
+.ui.header { color: var(--foreground); font-family: var(--font-sans); }
+
+.ui.form .field > label { color: var(--foreground); }
+.ui.form input, .ui.input > input, .ui.selection.dropdown {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+  border-radius: 0.75rem !important;
+}
+.ui.form input:focus, .ui.input > input:focus { border-color: var(--accent) !important; }
+.ui.checkbox label, .ui.checkbox + label { color: var(--foreground) !important; }
+
+.ui.items > .item > .content > .header, .ui.items > .item .meta, .ui.items > .item > .content > .description { color: var(--foreground); }

@@ -1,30 +1,95 @@
-# App La Magia Di Victoria ⚛️ 
+# La Magia di Victoria 🛍️
 
-_Final delivery project for the ReactJs course on the Coderhouse platform._
+Tienda online para **La Magia di Victoria**, una pyme chilena que vende productos Victoria's Secret traídos directamente desde Miami: bolsos y accesorios, cuidado corporal y belleza.
 
-## Site Flow 🌎
-_In this project, it is an e-commerce application for a Chilean SME called La Magia di Victoria that sells Victoria's Secret products purchased directly from Miami. The project is responsive and was built using React Js and npm libraries_  
+Nació como proyecto final del curso de ReactJS de [Coderhouse] y luego se rediseñó por completo.
 
-## Build with 🛠️
- * [React Semantic UI](https://react.semantic-ui.com/) - For the application of styles in Form, Buttons, Nav, Cards, among others.
- * [Formik](https://formik.org/) - For handling values and errors in form.
- * [Yup](https://www.npmjs.com/package/yup) - For the handling of form validations integrated with formik.
- * [React Router DOM](https://www.npmjs.com/package/react-router-dom/v/5.3.0) - To navigate dynamically through the site while maintaining the single page application format.
- 
+![Página de inicio](docs/screenshots/home.png)
 
-## Data Base 📚
-_The app was implemented with non-relational Firebase: fire: to store the products and to receive the data from the shopping cart, such as:_
- * Customer data handling the transport checkout.
- * Customer data that handles the payment method checkout, only transbank for the moment.
- * Detail of the product (s) purchased with its image, stock, description and price.
- * Summary checkout of all entered data.
+## Funcionalidades
 
-## Author ✒️
-_Intellectual author, design and functionalities_
+- Catálogo con filtro por categoría y búsqueda por nombre.
+- Página de detalle de cada producto, con selector de cantidad que respeta el stock.
+- Carro de compras global, con contador en la barra superior.
+- Checkout en 4 pasos: revisión del pedido → datos de despacho → pago → resumen de la orden con su código.
+- Formularios validados con Formik + Yup.
+- Modo claro y oscuro.
+- Diseño responsive para celular, tablet y escritorio.
 
-_Rodrigo Palma Raggi_ 🧑‍💻
- * [Linkedin](https://www.linkedin.com/in/rodrigo-palma-raggi-67537158)
- * [Instagram](https://www.instagram.com/hrodrico)
+## Capturas
+
+| Categoría | Detalle de producto |
+| --- | --- |
+| ![Categoría Cuidado Corporal](docs/screenshots/categoria.png) | ![Detalle de producto](docs/screenshots/detalle.png) |
+
+| Carro y checkout | Modo oscuro |
+| --- | --- |
+| ![Carro de compras](docs/screenshots/carro.png) | ![Modo oscuro](docs/screenshots/home-oscuro.png) |
+
+<p align="center">
+  <img src="docs/screenshots/movil.png" alt="Vista en celular" width="320">
+</p>
+
+## Tecnologías
+
+- [React 17](https://react.dev/) con Create React App
+- [React Router 6](https://reactrouter.com/) para la navegación
+- [Semantic UI React](https://react.semantic-ui.com/) en el checkout
+- [Formik](https://formik.org/) y [Yup](https://github.com/jquense/yup) para formularios y validaciones
+- [SweetAlert2](https://sweetalert2.github.io/) para avisos
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+## Cómo correrlo
+
+Requiere Node 24.
+
+```bash
+npm install
+npm start          # http://localhost:3000
+npm run build      # build de producción en /build
+```
+
+Los scripts `start` y `build` incluyen `NODE_OPTIONS=--openssl-legacy-provider`, que es necesario para que react-scripts 4 funcione con Node 17 o superior.
+
+### Datos
+
+Los productos vienen de una API simulada en [`src/mock/api.js`](src/mock/api.js), así que la app funciona sin backend. Las órdenes de compra se guardan en el `localStorage` del navegador.
+
+La versión original usaba Firebase Firestore. La configuración sigue en `src/firebase/` por si se quiere volver a conectar.
+
+### Variables de entorno
+
+El archivo `.env` define los textos de la tienda y los links a redes sociales:
+
+| Variable | Uso |
+| --- | --- |
+| `REACT_APP_NAME_BUSINESS` | Nombre de la tienda en la barra superior y el pie de página |
+| `REACT_APP_GREETING` | Título de bienvenida en la portada |
+| `REACT_APP_RESUMEN_ORDER_THANKS` | Mensaje de agradecimiento al terminar la compra |
+| `REACT_APP_INSTAGRAM`, `REACT_APP_FACEBOOK` | Links a redes sociales |
+
+## Estructura
+
+```
+src/
+├── components/   Header, Footer, catálogo (Item*), carro y checkout (Cart/*)
+├── context/      CartContext: carro, paso del checkout y orden de compra
+├── mock/         API simulada con los productos y las órdenes
+├── views/        Páginas: inicio, categoría, carro, 404
+└── utils/        Formato de precios, avisos, modo oscuro, scroll al cambiar de página
+```
+
+## Autor
+
+**Rodrigo Raggi Palma** 🧑‍💻
+
+- [LinkedIn](https://www.linkedin.com/in/rodrigo-palma-raggi-67537158)
+- [Instagram](https://www.instagram.com/hrodrico)
+
+Tienda: [@la_magia_di_victoria](https://www.instagram.com/la_magia_di_victoria/)
 
 ---
-Five me one :star: if you like me 💥💥🚀
+
+Si te gustó el proyecto, deja una ⭐
+
+[Coderhouse]: https://www.coderhouse.com/

@@ -1,0 +1,81 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3.5vw, 2.75rem) clamp(1.25rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+  background:
+    radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 50%),
+    var(--surface);
+  border: 1px solid var(--border);
+}
+
+.hero-content { max-width: 720px; }
+
+.hero h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.hero-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.hero-chips .btn { background: var(--background); }
+
+.catalog-heading { margin-bottom: 2rem; }
+.catalog-heading h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin: 0.5rem 0 0; }
+
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.catalog-toolbar h2 { margin: 0; font-size: 1.75rem; }
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: min(100%, 320px);
+  padding: 0 0.75rem 0 1rem;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--muted);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.search-field input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.search-field input::-webkit-search-cancel-button { display: none; }
+.search-field button {
+  display: inline-flex;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.catalog-count { font-size: 0.9rem; margin: 0 0 1.25rem; }

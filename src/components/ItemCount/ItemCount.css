@@ -1,0 +1,40 @@
+.item-count-stock {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.item-count-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.item-count-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.item-count-stepper button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 46px;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.item-count-stepper button:hover:not(:disabled) { background: var(--surface); }
+.item-count-stepper button:disabled { opacity: 0.35; cursor: not-allowed; }
+.item-count-stepper output {
+  min-width: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.item-count-add { flex: 1; min-width: 200px; }
