@@ -83,7 +83,7 @@ src/
 
 **Rodrigo Raggi Palma** 🧑‍💻
 
-- [LinkedIn](https://www.linkedin.com/in/rodrigo-palma-raggi-67537158)
+- [LinkedIn](https://www.linkedin.com/in/rodrigo-raggi-palma-67537158)
 - [Instagram](https://www.instagram.com/hrodrico)
 
 Tienda: [@la_magia_di_victoria](https://www.instagram.com/la_magia_di_victoria/)
